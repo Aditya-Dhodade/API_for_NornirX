@@ -12,8 +12,10 @@ temp = pd.read_csv("PBLFinalDatawithClusters.csv")
 # app = Flask(__name__)
 app = FastAPI()
 
-# @app.route('/get_recomm')
-# def show():
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 @app.post("/get_recomm")
 async def process_string(weight_string: str):
     print(weight_string)
